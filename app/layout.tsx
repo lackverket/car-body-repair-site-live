@@ -15,7 +15,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BodyCraft | Premium Car Body Repair",
+  title: "Car Body Repair",
   description:
     "Expert car body repair for paintwork touchups, dent removal, scratch repair, bumper and panel work, alloy wheel restoration, and full accident recovery.",
 };

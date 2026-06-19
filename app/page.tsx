@@ -1080,9 +1080,9 @@ export default function Home() {
               ))}
               <div className="mt-5 grid grid-cols-3 gap-3">
                 {[
-                  { value: "50", label: "Cars repaired" },
-                  { value: "17", label: "This month" },
-                  { value: "10", label: "5★ reviews" },
+                  { value: "20", label: "Cars repaired" },
+                  { value: "6", label: "This month" },
+                  { value: "9", label: "5★ reviews" },
                 ].map((stat) => (
                   <div
                     key={stat.label}
@@ -1150,8 +1150,8 @@ export default function Home() {
                 links: [
                   "Request a quote",
                   "Schedule inspection",
-                  "(555) 842-3071",
-                  "hello@bodycraft.com",
+                  "0720175620",
+                  "info@lackverket.se",
                 ],
               },
             ].map((col) => (
@@ -1181,7 +1181,7 @@ export default function Home() {
           {/* Bottom bar */}
           <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-white/5 pt-8 sm:flex-row sm:items-center">
             <p className="text-sm text-slate-500">
-              © 2024 Premium Car Body Repair. All rights reserved.
+              © 2026 Premium Car Body Repair. All rights reserved.
             </p>
             <div className="flex items-center gap-5">
               {["Twitter", "Instagram", "Facebook"].map((s) => (
