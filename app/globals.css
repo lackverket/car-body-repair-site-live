@@ -1,26 +1,107 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+
+  /* Brand */
+  --brand-blue: #2563eb;
+  --brand-blue-dark: #1d4ed8;
+  --brand-blue-light: #eff6ff;
+  --brand-yellow: #f9f906;
+  --brand-yellow-dark: color-mix(in oklch, #f9f906 95%, black);
+
+  /* Text */
+  --text-primary: #0f172a;
+  --text-muted: #64748b;
+  --text-faint: #94a3b8;
+
+  /* Dark section backgrounds */
+  --dark-1: #0f172a;
+  --dark-2: #1e293b;
+  --dark-3: #0c1222;
+
+  /* Shadows (derived from reference shadow system) */
+  --shadow-card: 0 0 0 1px rgba(15, 23, 42, 0.08), 0 2px 4px rgba(15, 23, 42, 0.05);
+  --shadow-card-hover: 0 0 0 1px rgba(37, 99, 235, 0.3), 0 8px 24px rgba(37, 99, 235, 0.08);
+  --shadow-overlay: 0 0 0 1px rgba(15, 23, 42, 0.11),
+    0 4px 6px rgba(15, 23, 42, 0.03),
+    0 8px 16px rgba(15, 23, 42, 0.04),
+    0 24px 64px rgba(15, 23, 42, 0.16);
+  --shadow-btn: 0 1px 2px rgba(15, 23, 42, 0.05), inset 0 10px 24px -10px rgba(255, 255, 255, 0.4);
+  --shadow-btn-yellow: 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 10px 24px -10px rgba(255, 255, 255, 0.5);
+
+  /* Radii (from reference) */
+  --radius-sm: 0.375rem;
+  --radius-btn: 0.5rem;   /* radius--small-plus */
+  --radius-card: 0.875rem; /* radius--medium */
+  --radius-card-outer: 1.375rem; /* radius--large */
+  --radius-section: 2rem;  /* radius--x-large */
+
+  /* Hero gradient blobs */
+  --gradient-hero-blue: radial-gradient(circle, hsl(220deg 100% 87%) 0%, transparent 70%);
+  --gradient-hero-yellow: radial-gradient(circle, hsl(47deg 100% 87%) 0%, transparent 70%);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  background: #ffffff;
+  color: var(--text-primary);
+  font-family: var(--font-inter), "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "cv11", "calt";
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(37, 99, 235, 0.3);
+  color: #ffffff;
+}
+
+/* Heading weight utility */
+.font-black {
+  font-weight: 900;
+}
+
+/* Dot pattern for dark sections */
+.dot-pattern {
+  background-image: radial-gradient(circle, #94a3b8 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Modal backdrop animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal-backdrop {
+  animation: fadeIn 0.15s ease;
+}
+
+.modal-panel {
+  animation: slideUp 0.2s ease;
+}
+
+/* Smooth tab transitions */
+.tab-content {
+  animation: fadeIn 0.15s ease;
 }
