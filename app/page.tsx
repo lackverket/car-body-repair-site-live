@@ -302,7 +302,7 @@ export default function Home() {
 
           {/* Desktop nav */}
           <div className="hidden items-center gap-7 md:flex">
-            {["Services", "Process", "Reviews", "Contact"].map((link) => (
+            {["Services", "Process", "Contact"].map((link) => (
               <a
                 key={link}
                 href={`#${link.toLowerCase()}`}
@@ -342,7 +342,7 @@ export default function Home() {
         {mobileOpen && (
           <div className="border-t border-slate-900/10 bg-white px-5 py-5 md:hidden">
             <div className="flex flex-col gap-4">
-              {["Services", "Process", "Reviews", "Contact"].map((link) => (
+              {["Services", "Process", "Contact"].map((link) => (
                 <a
                   key={link}
                   href={`#${link.toLowerCase()}`}
@@ -593,112 +593,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════
-          CUSTOMER SHOWCASE
-      ══════════════════════════════════════════════════════ */}
-      <section
-        id="reviews"
-        className="border-t border-slate-900/10 bg-slate-50 py-24 sm:py-32"
-      >
-        <div className="mx-auto w-[88%] max-w-[84rem]">
-          <div className="mx-auto max-w-xl text-center">
-            <p
-              className="text-xs uppercase tracking-[0.1em] text-slate-500"
-              style={{ fontFamily: "var(--font-mono), monospace" }}
-            >
-              Our Feedback
-            </p>
-            <h2 className="mt-4 text-4xl font-black leading-[1.1] tracking-[-0.02em] text-slate-950 sm:text-5xl">
-              Real drivers with real results.
-            </h2>
-            <p className="mt-4 text-base font-medium leading-[1.6] text-slate-600">
-              Everyday cars and premium vehicles. What will you restore?
-            </p>
-          </div>
-
-          {/* Showcase cards */}
-          <div className="mt-14 grid gap-6 sm:grid-cols-3">
-            {[
-              {
-                title: "BMW 3 Series",
-                sub: "Full respray + PDR dent removal",
-                bg: "#2563eb",
-              },
-              {
-                title: "Land Rover Defender",
-                sub: "Bumper & quarter-panel rebuild",
-                bg: "#0f172a",
-              },
-              {
-                title: "Porsche 911",
-                sub: "Alloy refurb + deep scratch repair",
-                bg: "#1d4ed8",
-              },
-            ].map((car) => (
-              <div
-                key={car.title}
-                className="overflow-hidden rounded-[1.375rem] border border-slate-900/10 bg-white shadow-[0_0_0_1px_rgba(15,23,42,0.06),0_2px_4px_rgba(15,23,42,0.05)]"
-              >
-                {/* Car silhouette placeholder */}
-                <div
-                  className="flex h-40 items-center justify-center"
-                  style={{ background: car.bg }}
-                >
-                  <svg
-                    viewBox="0 0 140 56"
-                    className="w-36 opacity-25"
-                    fill="white"
-                  >
-                    <path d="M12 40 Q18 22 40 20 L52 13 Q70 8 88 13 L100 20 Q122 22 128 40 Q131 46 128 48 L12 48 Q9 46 12 40Z" />
-                    <circle cx="34" cy="49" r="7" />
-                    <circle cx="106" cy="49" r="7" />
-                    <rect x="52" y="14" width="36" height="12" rx="3" opacity="0.4" />
-                  </svg>
-                </div>
-                <div className="p-5">
-                  <p className="font-semibold text-slate-950">{car.title}</p>
-                  <p className="mt-0.5 text-sm text-slate-500">{car.sub}</p>
-                  <div className="mt-3">
-                    <span className="inline-flex rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-medium text-green-700">
-                      Completed
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Testimonials */}
-          <div className="mt-8 grid gap-6 sm:grid-cols-3">
-            {reviews.map((r) => (
-              <div
-                key={r.name}
-                className="rounded-[1.375rem] border border-slate-900/10 bg-white p-7 shadow-[0_0_0_1px_rgba(15,23,42,0.06),0_2px_4px_rgba(15,23,42,0.05)]"
-              >
-                <p className="text-sm leading-[1.75] text-slate-600">
-                  &ldquo;{r.quote}&rdquo;
-                </p>
-                <div className="mt-5 flex items-center gap-3">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#2563eb] text-xs font-black text-white">
-                    {r.initials}
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-slate-950">
-                      {r.name}
-                    </p>
-                    <p className="text-xs text-slate-500">{r.title}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════
-          PROCESS
-      ══════════════════════════════════════════════════════ */}
+    
       <section
         id="process"
         className="border-t border-slate-900/10 bg-white py-24 sm:py-32"
@@ -845,11 +740,6 @@ export default function Home() {
                 title: "Same-week appointments",
                 sub: "Most minor repairs can be booked and started within 2–3 working days of your request.",
               },
-              {
-                icon: "✓",
-                title: "Let your insurer handle billing",
-                sub: "We work directly with all major insurance providers on accident and collision claims.",
-              },
             ].map((item) => (
               <div
                 key={item.title}
@@ -970,29 +860,6 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-14 grid gap-6 sm:grid-cols-3">
-            {supportReviews.map((r) => (
-              <div
-                key={r.name}
-                className="rounded-[1.375rem] border border-slate-900/10 bg-white p-7 shadow-[0_0_0_1px_rgba(15,23,42,0.06),0_2px_4px_rgba(15,23,42,0.05)]"
-              >
-                <p className="text-sm leading-[1.75] text-slate-600">
-                  &ldquo;{r.quote}&rdquo;
-                </p>
-                <div className="mt-5 flex items-center gap-3">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-950 text-xs font-black text-white">
-                    {r.initials}
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-slate-950">
-                      {r.name}
-                    </p>
-                    <p className="text-xs text-slate-500">{r.title}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -1018,75 +885,6 @@ export default function Home() {
                 >
                   Start your free repair quote
                 </button>
-              </div>
-            </div>
-
-            {/* Right — stylised repair status card */}
-            <div className="rounded-[1.375rem] border border-white/10 bg-[#1e293b] p-6">
-              <div className="mb-4 flex items-center justify-between">
-                <p
-                  className="text-xs text-slate-400"
-                  style={{ fontFamily: "var(--font-mono), monospace" }}
-                >
-                  Repair status
-                </p>
-                <span
-                  className="rounded-full bg-green-500/15 px-2.5 py-0.5 text-xs font-medium text-green-400"
-                  style={{ fontFamily: "var(--font-mono), monospace" }}
-                >
-                  Live
-                </span>
-              </div>
-              {[
-                {
-                  car: "Toyota GR86 — Dent removal",
-                  status: "Complete",
-                  col: "text-green-400",
-                },
-                {
-                  car: "Audi A4 — Full respray",
-                  status: "In progress",
-                  col: "text-yellow-400",
-                },
-                {
-                  car: "BMW M3 — Panel repair",
-                  status: "Scheduled",
-                  col: "text-[#2563eb]",
-                },
-              ].map((row) => (
-                <div
-                  key={row.car}
-                  className="flex items-center justify-between border-b border-white/5 py-3 last:border-0"
-                >
-                  <span className="text-sm text-slate-300">{row.car}</span>
-                  <span
-                    className={`font-mono text-xs ${row.col}`}
-                  >
-                    {row.status}
-                  </span>
-                </div>
-              ))}
-              <div className="mt-5 grid grid-cols-3 gap-3">
-                {[
-                  { value: "20", label: "Cars repaired" },
-                  { value: "6", label: "This month" },
-                  { value: "9", label: "5★ reviews" },
-                ].map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="rounded-[0.5rem] bg-[#0f172a] p-3 text-center"
-                  >
-                    <p className="text-2xl font-black text-white">
-                      {stat.value}
-                    </p>
-                    <p
-                      className="mt-1 text-[0.6rem] uppercase tracking-wide text-slate-500"
-                      style={{ fontFamily: "var(--font-mono), monospace" }}
-                    >
-                      {stat.label}
-                    </p>
-                  </div>
-                ))}
               </div>
             </div>
           </div>
@@ -1131,7 +929,7 @@ export default function Home() {
               },
               {
                 heading: "Company",
-                links: ["About us", "Our process", "Customer reviews", "Blog"],
+                links: ["About us", "Our process"],
               },
               {
                 heading: "Contact",
