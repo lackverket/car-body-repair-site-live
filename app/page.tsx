@@ -369,26 +369,14 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════════
           HERO
       ══════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden bg-white pb-0 pt-20 sm:pt-28">
-        {/* Gradient blobs matching reference (blue replaces pink) */}
-        <div className="pointer-events-none absolute inset-0 -z-10">
-          <div
-            className="absolute -right-32 -top-32 h-[640px] w-[640px] rounded-full opacity-70"
-            style={{ background: "var(--gradient-hero-blue)" }}
-          />
-          <div
-            className="absolute -bottom-16 -left-32 h-[560px] w-[560px] rounded-full opacity-70"
-            style={{ background: "var(--gradient-hero-yellow)" }}
-          />
-        </div>
-
-        <div className="relative mx-auto w-[88%] max-w-[84rem] text-center">
+      <section className="relative overflow-hidden pb-0 pt-20 sm:pt-28">
+<div className="relative z-10 mx-auto w-[88%] max-w-[84rem] text-center">
           {/* Eyebrow */}
           <p
             className="text-xs uppercase tracking-[0.1em] text-slate-500"
             style={{ fontFamily: "var(--font-mono), monospace" }}
           >
-            Certified car body repair
+            Car body repair
           </p>
 
           {/* H1 */}
@@ -423,7 +411,7 @@ export default function Home() {
         </div>
 
         {/* Three mini feature-preview cards */}
-        <div className="relative mx-auto mt-16 w-[88%] max-w-[84rem]">
+        <div className="relative z-10 mx-auto mt-16 w-[88%] max-w-[84rem]">
           <div className="grid gap-5 sm:grid-cols-3">
             {/* Card 1 — Paint */}
             <div className="rounded-t-[1.375rem] border border-b-0 border-slate-900/10 bg-white p-6 shadow-[0_0_0_1px_rgba(15,23,42,0.06),0_2px_4px_rgba(15,23,42,0.05)]">
@@ -618,10 +606,10 @@ export default function Home() {
               className="text-xs uppercase tracking-[0.1em] text-slate-500"
               style={{ fontFamily: "var(--font-mono), monospace" }}
             >
-              Made with BodyCraft
+              Our Feedback
             </p>
             <h2 className="mt-4 text-4xl font-black leading-[1.1] tracking-[-0.02em] text-slate-950 sm:text-5xl">
-              Real drivers shipping real results.
+              Real drivers with real results.
             </h2>
             <p className="mt-4 text-base font-medium leading-[1.6] text-slate-600">
               Everyday cars and premium vehicles. What will you restore?
@@ -816,7 +804,7 @@ export default function Home() {
                       icon: "☎",
                       bg: "#2563eb",
                       textColor: "text-white",
-                      title: "Call us: (555) 842-3071",
+                      title: "Call us: 0720175620",
                       body: "Mon–Sat, 8am–6pm. Speak directly to a technician for complex or urgent repairs.",
                     },
                     {
