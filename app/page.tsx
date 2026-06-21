@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 
-/* ─── Data ─────────────────────────────────────────────── */
+/* ─── Data ──────────────────────────────────────────────── */
 
 const services = [
   {
@@ -271,6 +272,68 @@ function QuoteModal({ onClose }: { onClose: () => void }) {
   );
 }
 
+/* ─── Slideshow ─────────────────────────────────────────── */
+
+function Slideshow({ images, label }: { images: string[]; label: string }) {
+  const [index, setIndex] = useState(0);
+  const timer = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  useEffect(() => {
+    timer.current = setInterval(() => {
+      setIndex((i) => (i + 1) % images.length);
+    }, 2000);
+    return () => {
+      if (timer.current) clearInterval(timer.current);
+    };
+  }, [images.length]);
+
+  return (
+    <div className="overflow-hidden rounded-[1.375rem] border border-slate-900/10 bg-white shadow-[0_0_0_1px_rgba(15,23,42,0.06),0_2px_8px_rgba(15,23,42,0.07)]">
+      <div className="relative h-52 w-full sm:h-60 overflow-hidden bg-slate-100">
+        {images.map((src, i) => (
+          <Image
+            key={src}
+            src={src}
+            alt={label}
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className={`object-cover transition-opacity duration-700 ${
+              i === index ? "opacity-100" : "opacity-0"
+            }`}
+            style={{ position: "absolute" }}
+          />
+        ))}
+      </div>
+      <div className="flex items-center justify-between px-4 py-3">
+        <span
+          className="text-[0.6875rem] uppercase tracking-[0.08em] text-slate-500"
+          style={{ fontFamily: "var(--font-mono), monospace" }}
+        >
+          {label}
+        </span>
+        <div className="flex gap-1.5">
+          {images.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => {
+                setIndex(i);
+                if (timer.current) clearInterval(timer.current);
+                timer.current = setInterval(() => {
+                  setIndex((j) => (j + 1) % images.length);
+                }, 2000);
+              }}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                i === index ? "w-5 bg-[#2563eb]" : "w-1.5 bg-slate-300"
+              }`}
+              aria-label={`Slide ${i + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ─── Page ──────────────────────────────────────────────── */
 
 export default function Home() {
@@ -494,6 +557,34 @@ export default function Home() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════
+          PHOTO SHOWCASE
+      ══════════════════════════════════════════════════════ */}
+      <section className="border-t border-slate-900/10 bg-slate-50 py-16 sm:py-20">
+        <div className="mx-auto w-[88%] max-w-[84rem]">
+          {/* Two-column row on large screens */}
+          <div className="grid gap-5 lg:grid-cols-2">
+            <Slideshow
+              label="Dent repairs"
+              images={["/img/black_dent.jpg", "/img/side-dent.jpg", "/img/side_dents.jpg"]}
+            />
+            <Slideshow
+              label="Scratch & bumper work"
+              images={["/img/bumper_scratch.jpg", "/img/scratches.jpg", "/img/near-headlights.jpg"]}
+            />
+          </div>
+          {/* Third slideshow — centred, not full width on large screens */}
+          <div className="mt-5 flex justify-center">
+            <div className="w-full lg:w-1/2">
+              <Slideshow
+                label="Panel & paint"
+                images={["/img/front-damage.jpg", "/img/front-repair.jpg", "/img/side-repair.jpg", "/img/repair.jpg"]}
+              />
             </div>
           </div>
         </div>
