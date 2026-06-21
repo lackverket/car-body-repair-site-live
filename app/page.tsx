@@ -9,6 +9,7 @@ const services = [
   {
     badge: "Colour match",
     title: "Paintwork & Resprays",
+    image: "/services/spray-paint.jpg",
     bullets: [
       "Factory-accurate colour matching per panel",
       "Spot correction, edge blending, gloss coat",
@@ -19,6 +20,7 @@ const services = [
   {
     badge: "Dent repair",
     title: "Dent Removal",
+    image: "/services/dent-removal.jpg",
     bullets: [
       "Paintless dent repair (PDR) for minor dings",
       "Filler-based repair for deeper damage",
@@ -29,6 +31,7 @@ const services = [
   {
     badge: "Scratch fix",
     title: "Car Scratch Repair",
+    image: "/services/scratch-repair.jpg",
     bullets: [
       "Surface and deep-scratch damage assessment",
       "Polish and touch-up for superficial marks",
@@ -39,6 +42,7 @@ const services = [
   {
     badge: "Panel work",
     title: "Bumper, Panel & Door Repairs",
+    image: "/services/door-repair.jpg",
     bullets: [
       "Bumper reshaping, refilling, and repainting",
       "Door and quarter-panel restoration",
@@ -49,6 +53,7 @@ const services = [
   {
     badge: "Alloy care",
     title: "Alloy Wheel Restoration",
+    image: "/services/alloy-wheel.jpg",
     bullets: [
       "Scuff and kerb-rash removal",
       "Full powder coat or diamond-cut finish",
@@ -638,13 +643,14 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                {/* Mini visual */}
-                <div className="mt-6 overflow-hidden rounded-[0.875rem] border border-slate-900/5 bg-slate-50 p-4">
-                  <div className="mb-2 flex items-center gap-1.5">
-                    <div className="h-2 w-2 rounded-full bg-slate-300" />
-                    <div className="h-1.5 w-16 rounded-full bg-slate-200" />
-                  </div>
-                  <div className="h-10 rounded-[0.5rem] bg-gradient-to-br from-[#2563eb]/10 to-[#f9f906]/20" />
+                <div className="relative mt-6 h-40 w-full overflow-hidden rounded-[0.875rem]">
+                  <Image
+                    src={s.image}
+                    alt={s.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover"
+                  />
                 </div>
               </div>
             ))}
@@ -672,12 +678,14 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-6 overflow-hidden rounded-[0.875rem] border border-slate-900/5 bg-slate-50 p-4">
-                <div className="mb-2 flex items-center gap-1.5">
-                  <div className="h-2 w-2 rounded-full bg-slate-300" />
-                  <div className="h-1.5 w-20 rounded-full bg-slate-200" />
-                </div>
-                <div className="h-10 rounded-[0.5rem] bg-gradient-to-br from-slate-200 to-[#2563eb]/10" />
+              <div className="relative mt-6 h-40 w-full overflow-hidden rounded-[0.875rem]">
+                <Image
+                  src="/services/crash-repair.jpg"
+                  alt="Crash & Accident Repairs"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover"
+                />
               </div>
             </div>
           </div>
